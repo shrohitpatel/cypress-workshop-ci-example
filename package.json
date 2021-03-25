@@ -8,7 +8,7 @@
     "build": "eleventy",
     "cy:open": "cypress open",
     "cy:run": "cypress run",
-    "e2e": "start-test 8080 cy:run"
+    "e2e": "start-test 8080 cypress run --record --key 4847b2c0-6fda-4f20-b26e-547080948500"
   },
   "repository": {
     "type": "git",
