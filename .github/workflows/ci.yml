@@ -7,7 +7,7 @@ jobs:
       - name: Checkout 🛎
         uses: actions/checkout@v2
 
-      - name: Cache dependencies 💎
+      - name: Cache dependencies
         uses: actions/cache@v2
         with:
           path: |
@@ -18,23 +18,17 @@ jobs:
           # https://glebbahmutov.com/blog/do-not-let-cypress-cache-snowball/
           key: dependencies-v1-${{ runner.os }}-${{ hashFiles('**/package-lock.lock') }}
 
-      - name: Install dependencies 📦
+      - name: Install dependencies
         run: npm ci
 
-      - name: Show Cypress info ℹ️
+      - name: Show Cypress info
         run: npx cypress info
 
-      - name: Verify Cypress can run 🏃‍♂️
+      - name: Verify Cypress can run
         run: npx cypress verify
 
-      - name: Build the app 🏗
+      - name: Build the app 
         run: npm run build
 
-      - name: Start the app 📤
-        run: npm start &
-
-      - name: Wait for URL ⏰
-        run: npx wait-on http://localhost:8080
-
-      - name: Run Cypress tests 🧪
-        run: npm run cy:run
+      - name: Run Cypress tests 
+        run: npm run e2e
